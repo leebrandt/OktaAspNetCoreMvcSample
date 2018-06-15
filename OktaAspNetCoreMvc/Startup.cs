@@ -32,9 +32,9 @@ namespace OktaAspNetCoreMvc
             .AddOpenIdConnect(options =>
             {
                 // Configuration pulled from appsettings.json by default:
-                options.ClientId = Configuration["okta:ClientId"];
-                options.ClientSecret = Configuration["okta:ClientSecret"];
-                options.Authority = Configuration["okta:Issuer"];
+                options.ClientId = Configuration["OKTA_CLIENT_ID"];
+                options.ClientSecret = Configuration["OKTA_CLIENT_SECRET"];
+                options.Authority = Configuration["OKTA_ISSUER"];
                 options.CallbackPath = "/authorization-code/callback";
                 options.ResponseType = "code";
                 options.SaveTokens = true;
@@ -52,8 +52,8 @@ namespace OktaAspNetCoreMvc
             (
                 new OktaClient(new OktaClientConfiguration()
                 {
-                    OrgUrl = Configuration["okta:OrgUrl"],
-                    Token = Configuration["okta:APIToken"]
+                    OrgUrl = Configuration["OKTA_ORG_URL"],
+                    Token = Configuration["OKTA_API_TOKEN"]
                 })
             );
 
